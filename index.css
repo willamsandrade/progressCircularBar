@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    min-height: 100vh;
+    background: #350048;
+}
+section::before{
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #bd00ff; 
+}
+.container{
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container .card{
+   position: relative;
+   width: 250px;
+   height: 300px;
+   text-align: center; 
+   z-index: 10;
+   margin: 20px 20px 60px;
+   transition: 0.5s;
+}
+
+.container .card .box{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: 10;
+    border-radius: 10px;
+}
+.percent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    z-index: 100;
+}
+.percent .number{
+   position: absolute;
+   top:0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.percent .number h2{
+   color: #fff; 
+   font-weight: 100;
+   font-size: 50px;
+}
+.percent .number h2 span{
+    font-size: 24px;
+}
+.text{
+  z-index: 1; /* começar com 12 */
+  color: #fff;
+  position: absolute; 
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 30px 20px 10px;
+  background: #f00;
+  border-radius: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  font-weight: 800;
+  pointer-events: none;
+  transition: bottom 0.5s, z-index 0s, transform 0.5s, padding 0.5s;
+  transition-delay: 0.5s, 0.5s, 0s, 0.5s;
+}
+.card:hover .text{
+    bottom: -70px;
+    z-index: 11;
+    transform: translateX(-50%) translateY(-50px);
+    padding: 10px 20px 10px;
+    transition-delay: 0s, 0.5s, 0.5s, 0s;
+}
+.card:nth-child(1) .text{
+   background: #ff0461;
+}
+.card:nth-child(2) .text{
+    background: #2bd2ff;
+ }
+ .card:nth-child(3) .text{
+    background: #18d539;
+ }
+
+ /* Começa ocultando
+svg{
+    display: none;
+}
+*/
+
+svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+svg circle{
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke: rgba(255,255,255,0.05);
+    transform: translate(5px,5px);
+    stroke-linecap: round;
+}
+
+svg circle:nth-child(2){
+    stroke: #fff;
+    stroke-dasharray: 440px;
+    stroke-dashoffset: 80px;
+    stroke-dashoffset: calc(440px - (440px * 0) / 100);
+}
+
+.card:nth-child(1) svg circle:nth-child(2){
+    stroke-dashoffset: calc(440px - (440px * 90) / 100);
+    animation: wave 3s;
+}
+
+.card:nth-child(2) svg circle:nth-child(2){
+    stroke-dashoffset: calc(440px - (440px * 85) / 100);
+    animation: wave1 3s;
+}
+
+.card:nth-child(3) svg circle:nth-child(2){
+    stroke-dashoffset: calc(440px - (440px * 65) / 100);
+    animation: wave2 3s;
+}
+
+@keyframes wave {
+    from{
+        stroke-dashoffset: calc(440px - (440px * 0) / 100);
+    }
+    to{
+        stroke-dashoffset: calc(440px - (440px * 90) / 100);
+    }
+}
+
+@keyframes wave1 {
+    from{
+        stroke-dashoffset: calc(440px - (440px * 0) / 100);
+    }
+    to{
+        stroke-dashoffset: calc(440px - (440px * 85) / 100);
+    }
+}
+
+@keyframes wave2 {
+    from{
+        stroke-dashoffset: calc(440px - (440px * 0) / 100);
+    }
+    to{
+        stroke-dashoffset: calc(440px - (440px * 65) / 100);
+    }
+}
